@@ -35,6 +35,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.0.0-M4</version>
+				<configuration>
+					<username>Subhashini2610</username>
+					<password>LordVishnu@1</password>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -63,5 +72,12 @@
 			</snapshots>
 		</repository>
 	</distributionManagement>
+
+	<scm>
+		<developerConnection>
+			scm:git:https://github.com/Subhashini2610/demo
+		</developerConnection>
+		<tag>sub-1.0.0</tag>
+	</scm>
 
 </project>
