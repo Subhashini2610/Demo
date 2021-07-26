@@ -33,3 +33,5 @@ build/
 .vscode/
 
 target/
+pom.xml.releaseBackup
+release.properties
