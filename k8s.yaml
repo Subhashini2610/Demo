@@ -26,7 +26,7 @@ kind: Service
 metadata:
   name: azdev
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: 9090
   selector:
