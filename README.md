@@ -1,4 +1,4 @@
-# Sample-Service-With-Deployment-
+# Sample-Service-With-Deployment
 This space is created for a hands-on experience on SpringBoot app + Docker + Kubernetes, to understand how MicroServices are deployed
 
 Agenda:
