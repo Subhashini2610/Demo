@@ -10,32 +10,47 @@ Agenda:
 
 ## Commands
 
-Create a Springboot application using [Spring initilaizer](https://start.spring.io) with Spring Web as a dependency (so that TomCat can be automatically used to host on localhost).
+**Create a Springboot application** using [Spring initilaizer](https://start.spring.io) with Spring Web as a dependency (so that TomCat can be automatically used to host on localhost).
 
 mvn clean
+
 mvn install
+
 java -jar demo-0.0.3-SNAPSHOT.jar
 
-Maven deploy:
+**Maven deploy**:
+
 Mvn deploy //to Azure feeds - if already existing, it will check for new changes and push only if new changes are present
+
 Mvn release:prepare —batch-mode //creates a maven release and makes changes in pom.xml like tag and version increment
+
 Mvn release perform// to push to azure feeds
 
-Create a docker image:
+**Create a docker image**:
+
 docker build -t azdev -f Dockerfile . //azdev - name of docker image, f is for docker file path, context is directory structure sent from local system to docker daemon.
+
 docker run -it -p 3000:9090 azdev //interactive terminal-it, 9090 is the port it runs on Docker container and map it to 3000 on my local machine. This still runs Docker images locally on my system. Push to https://hub.docker.com/u/subhashini9426
 
-Pushing to docker registry:
-Docker login -u <username> -p <password>
-Docker tag azdev subhashini9426/firstimage //docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
-Docker push subhashini9426/firstimage // docker push TARGET_IMAGE[:TAG]
+**Pushing to docker registry:**
 
-Expose the deployed service to outside world (only if the type of service is LoadBalancer) using Minikube:
-Minikube start
-Minikube dashboard
+docker login -u <username> -p <password>
+  
+docker tag azdev subhashini9426/firstimage //docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+  
+docker push subhashini9426/firstimage // docker push TARGET_IMAGE[:TAG]
+
+**Expose the deployed service to outside world (only if the type of service is LoadBalancer) using Minikube:**
+  
+minikube start
+  
+minikube dashboard
+  
 kubectl create -f k8s.yaml
+  
 Kubectl get services
-Minikube service azdev
+  
+minikube service azdev
 
 ## Author
 [Subhashini](https://github.com/Subhashini2610)
