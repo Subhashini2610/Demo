@@ -32,13 +32,44 @@ docker build -t azdev -f Dockerfile . //azdev - name of docker image, f is for d
 
 docker run -it -p 3000:9090 azdev //interactive terminal-it, 9090 is the port it runs on Docker container and map it to 3000 on my local machine. This still runs Docker images locally on my system. Push to https://hub.docker.com/u/subhashini9426
 
-**Pushing to docker registry:**
+**Pushing to docker hub:**
 
 docker login -u <username> -p <password>
   
 docker tag azdev subhashini9426/firstimage //docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
   
 docker push subhashini9426/firstimage // docker push TARGET_IMAGE[:TAG]
+  
+**Pushing to Azure Container Registry using CLI:**
+  
+az login
+  
+az acr login -n azdev //azdev - name of azure container registry(acr)
+  
+docker tag azdev azdev.azurecr.io/azdev:1.0 //tag the existing docker image, command from azure, 1.0 is the tag; after this one can see it in acr repositories
+  
+mvn deploy
+  
+**AKS Deployment**
+
+az account set --subscription <subscription name>
+  
+az aks get-credentials --resource-group azdev --name azdev
+
+ACR_NAME=azdev
+  
+ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
+  
+ad sp create-for-rbac --scopes $ACR_REGISTRY_ID --role acrpull
+  
+kubectl create secret docker-registry cred --namespace default --docker-server=azdev.azurecr.io --docker-username=<app id> --docker-password=<password> //username is appId, password is password
+
+kubectl get secrets
+
+kubectl apply -f k8s.yaml //creates a service
+
+kubectl get svc // gives the public endpoints as EXTERNAL-IP
+
 
 **Expose the deployed service to outside world (only if the type of service is LoadBalancer) using Minikube:**
   
