@@ -11,7 +11,7 @@ public class DemoApplication {
 
 	@GetMapping("/test-docker")
 	public String getData() {
-		return "in docker tutorial project of example";
+		return "sample project for sample deployment";
 	}
 
 	public static void main(String[] args) {
