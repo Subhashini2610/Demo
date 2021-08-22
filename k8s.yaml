@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: azdev
-          image: azdev.azurecr.io/azdev
+          image: subhashini9426/firstimage
           ports:
             - containerPort: 9090
           imagePullPolicy: Always
