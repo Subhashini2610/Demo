@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: azdev
-          image: azdev.azurecr.io/azdev:2.0
+          image: azdev.azurecr.io/azdev
           ports:
             - containerPort: 9090
           imagePullPolicy: Always
