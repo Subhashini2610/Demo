@@ -31,6 +31,7 @@ steps:
       goals: 'spring-boot:build-image'
       publishJUnitResults: false
       jdkVersionOption: '11'
+      imageName: 'azdev'
     
   - task: Docker@2
     displayName: Push Docker image
