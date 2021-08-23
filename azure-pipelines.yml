@@ -23,3 +23,11 @@ steps:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: '--settings $(Agent.TempDirectory)/settings.xml --batch-mode release:prepare -Darguments="-Dmaven.javadoc.skip=true" release:perform'
+  
+  - task: Maven@3
+    displayName: Build docker image
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'spring-boot:build-image'
+      publishJUnitResults: false
+      jdkVersionOption: '11'
