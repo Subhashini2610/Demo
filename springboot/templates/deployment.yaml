@@ -2,15 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ "azdev" }}
-  labels:
-    {{- include "springboot.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "springboot.selectorLabels" . | nindent 6 }}
+      app: azdev
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +16,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "springboot.selectorLabels" . | nindent 8 }}
+        app: azdev
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
