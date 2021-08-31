@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
-	<version>0.0.50-SNAPSHOT</version>
+	<version>0.0.50</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -76,7 +76,7 @@
 		<developerConnection>
 			scm:git:https://github.com/Subhashini2610/Sample-Service-With-Deployment
 		</developerConnection>
-		<tag>demo-0.0.3</tag>
+		<tag>demo-0.0.50</tag>
 	</scm>
 
 </project>
