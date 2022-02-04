@@ -15,7 +15,7 @@ public class DemoApplication {
 		System.out.println("Sample logs 1");
 		System.out.println("Sample logs 2");
 
-		return "Sample deployment with latest changes";
+		return "Sample deployment with latest changes and logs";
 	}
 
 	public static void main(String[] args) {
