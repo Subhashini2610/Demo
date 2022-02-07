@@ -21,6 +21,7 @@ data:
     @INCLUDE input-kubernetes.conf
     @INCLUDE filter-kubernetes.conf
     @INCLUDE output-azure.conf
+    @INCLUDE output-datadog.conf
 
   input-kubernetes.conf: |
     [INPUT]
@@ -52,7 +53,13 @@ data:
         Match           *
         Customer_ID     1b708378-ca7e-4d98-bbe6-df6a773a9d11
         Shared_Key      W6sJ1d3VdLoT8LVgwqfNB6LFw1x9feleI2YGzX02NflgDDR81ThXgUbiQrF4n90d8GOJpCWQCD5hjXxnarF1ng==
-        
+
+  output-datadog.conf: |
+    [OUTPUT]
+        Name           datadog
+        Match          *
+        apikey         cf7d41d3f7de68080174a73d9596316b
+
   parsers.conf: |
     [PARSER]
         Name   apache
